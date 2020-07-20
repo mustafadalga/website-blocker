@@ -1,5 +1,6 @@
 # Website Blocker
-#### Python ile geliştirilen website blocker script'i ile belirlenen internet sitelerine , istenilen saatler arasında girilmesi engellenebilir.
+
+#### Belirlenen internet sitelerine , belirlenen saatler arasında erişimi engellemek için geliştirilen bir script.
 
 
 * Python script'ini normal şartlarda her seferinde bizim çalıştırmamız gerekiyordu.Böyle bir uğraş içerisine girmemek için powershell kullanarak  bir görev zamanlayıcısı script'i oluşturdum.Bu powershell script'i, her bilgisayar oturumu açıldığında python script'inin arka planda çalışmasını sağlar.
