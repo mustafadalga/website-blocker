@@ -1,34 +1,34 @@
 # Website Blocker
 
-#### Belirlenen internet sitelerine , belirlenen saatler arasında erişimi engellemek için geliştirilen bir script.
+#### A script developed to block access to specified websites during specified hours.
 
 
-* Python script'ini normal şartlarda her seferinde bizim çalıştırmamız gerekiyordu.Böyle bir uğraş içerisine girmemek için powershell kullanarak  bir görev zamanlayıcısı script'i oluşturdum.Bu powershell script'i, her bilgisayar oturumu açıldığında python script'inin arka planda çalışmasını sağlar.
+* Normally, we would have to run the Python script manually each time. To avoid this, I created a task scheduler script using PowerShell. This PowerShell script ensures the Python script runs in the background every time the computer session starts.
 
-* Powershell ile oluşturduğum zamanlanmış görev script'ini kullanmadan Windows'un zamanlanmış görevler ayarlarından da,powershell script'inin yaptığı işlemi yaparak zamanlanmış görev oluşturabilirsiniz.
-
-
-### Engellenecek web siteleri  ve saatleri belirleme
-* ***websiteBlocker.pyw*** dosyasının içerisinden,**website_liste** listesinin içerisine engellenmesi istenilen internet siteleri yazılır.
-
-* Belirlenen web sitelerinin engellenmesi için başlangıç ve bitiş saatleri **baslangicSaati** ve **bitisSaati** değişkenlerine yazılır.
+* You can also create a scheduled task by following the steps of the PowerShell script using Windows' own scheduled tasks settings, without running the PowerShell script itself.
 
 
+### Defining Websites and Hours to Block
+* Within the ***websiteBlocker.pyw*** file, the desired websites to be blocked are added to the **website_liste** list.
 
-### Örnek Kullanımı
+* The start and end times for blocking the specified websites are written to the **baslangicSaati** and **bitisSaati** variables.
 
-* Örnek olarak  **Google**'yi  sabah *08:00* ile akşam *18:00* arasında engelleyeceğim.
 
-* Powershell ile oluşturduğum **zamanlanmisGorev.ps1** dosyasını çalıştırarak zamanlanmış görev oluşturuyorum.
 
-* Zamanlanmış görev oluşturduktan sonra her oturum açıldığında python script'i arka planda çalışacak. </br></br>
+### Example Usage
+
+* As an example, I will block **Google** between *08:00 AM* and *06:00 PM*.
+
+* I am creating a scheduled task by running the **zamanlanmisGorev.ps1** file I created with PowerShell.
+
+* After creating the scheduled task, the Python script will run in the background every time a session starts. </br></br>
 ![zamanlanmisgorev](https://user-images.githubusercontent.com/25087769/51472328-2ed64f00-1d8a-11e9-85c5-778b28372331.PNG)
 
-* Bir sonraki oturum açılışında *webBlocker* devreye girdi.
-* Saat *02:06:09 PM(14:06:09)* olduğu için **https://www.google.com**, **google.com** ve **www.google.com** adresleri hosts dosyasının içerisine eklendi.
+* Upon the next session login, *webBlocker* activated.
+* As the time was *02:06:09 PM (14:06:09)*, **https://www.google.com**, **google.com**, and **www.google.com** addresses were added to the hosts file.
 
 
- ### Host dosyası
+ ### Hosts file
 
 ![hosts_dosyasi](https://user-images.githubusercontent.com/25087769/51473466-80cca400-1d8d-11e9-8f0d-0372355502e0.PNG)
 
@@ -37,17 +37,10 @@
 ![engellenen site2](https://user-images.githubusercontent.com/25087769/51472877-ce481180-1d8b-11e9-9300-a644c2dbac0e.png)
 
 
-* Saat *09:06:26 PM(21:06:26)* olduğunda ise **https://www.google.com**, **google.com** ve **www.google.com** adresleri hosts dosyasının içerisinden siliniyor.
+* When the time was *09:06:26 PM (21:06:26)*, **https://www.google.com**, **google.com**, and **www.google.com** addresses were removed from the hosts file.
 
- ### Host dosyası
+ ### Hosts file
 ![hosts_dosyasi2](https://user-images.githubusercontent.com/25087769/51473195-bc1aa300-1d8c-11e9-89ba-4b6d1311e517.PNG)
 
  ### Google
 ![engellenmemis site](https://user-images.githubusercontent.com/25087769/51473202-c2a91a80-1d8c-11e9-8749-8368c06abacf.PNG)
-
-
-
-
-
-
-
